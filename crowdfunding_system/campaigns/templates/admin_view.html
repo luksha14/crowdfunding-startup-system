@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Admin View</h1>
+
+<h2>Startups</h2>
+<ul>
+    {% for startup in startups %}
+        <li>{{ startup.name }} - {{ startup.description }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Campaigns</h2>
+<ul>
+    {% for campaign in campaigns %}
+        <li>{{ campaign.name }} - {{ campaign.goal_amount }} - {{ campaign.collected_amount }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Donations</h2>
+<ul>
+    {% for donation in donations %}
+        <li>{{ donation.user_name }} - {{ donation.amount }} to {{ donation.campaign.name }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %} 
+    <link rel="stylesheet" href="{% static 'campaigns/style.css' %}">
+    <title>Crowdfunding System</title>
+</head>
+<body>
+    <header>
+        <nav>
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }}!</p>
+                {% if user.is_superuser %}
+                    <a href="{% url 'campaigns:admin_view' %}">Admin Panel</a>
+                {% else %}
+                    <a href="{% url 'campaigns:user_view' %}">User Dashboard</a>
+                {% endif %}
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <h1>Dobrodošli u Crowdfunding System</h1>
+                <p>Prijavite se ili registrirajte za početak.</p>
+                <a href="{% url 'login' %}">Login</a> |
+                <a href="{% url 'campaigns:register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content of the child templates will go here -->
+        {% endblock %}
+    </main>
+</body>
+</html>
