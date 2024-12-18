@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from .models import Startup, Campaign, Donation
+from django.views.generic import ListView, DetailView
+from django.db.models import Q
 from django.http import HttpResponse
 
 ## Create your views here.
@@ -47,3 +49,57 @@ def user_view(request):
         'campaigns': campaigns,
         'donations': donations
     })
+
+class StartupListView(ListView):
+    model = Startup
+    template_name = 'startup_list.html'
+    context_object_name = 'startups'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')  
+        if query:
+            return Startup.objects.filter(
+                Q(name__icontains=query) | Q(founders__icontains=query)
+            )
+        return Startup.objects.all()
+
+class StartupDetailView(DetailView):
+    model = Startup
+    template_name = 'startup_detail.html'
+    context_object_name = 'startup'
+
+class CampaignListView(ListView):
+    model = Campaign
+    template_name = 'campaign_list.html'
+    context_object_name = 'campaigns'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Campaign.objects.filter(
+                Q(name__icontains=query) | Q(description__icontains=query)
+            )
+        return Campaign.objects.all()
+
+class CampaignDetailView(DetailView):
+    model = Campaign
+    template_name = 'campaign_detail.html'
+    context_object_name = 'campaign'
+
+class DonationListView(ListView):
+    model = Donation
+    template_name = 'donation_list.html'
+    context_object_name = 'donations'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Donation.objects.filter(
+                Q(user_name__icontains=query) | Q(campaign__name__icontains=query)
+            )
+        return Donation.objects.all()
+
+class DonationDetailView(DetailView):
+    model = Donation
+    template_name = 'donation_detail.html'
+    context_object_name = 'donation'

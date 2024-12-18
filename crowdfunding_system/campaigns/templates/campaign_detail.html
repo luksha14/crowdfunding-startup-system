@@ -1,0 +1,9 @@
+<h1>{{ campaign.name }}</h1>
+<p><strong>Description:</strong> {{ campaign.description }}</p>
+<p><strong>Goal Amount:</strong> {{ campaign.goal_amount }}</p>
+<p><strong>Collected Amount:</strong> {{ campaign.collected_amount }}</p>
+<p><strong>Start Date:</strong> {{ campaign.start_date }}</p>
+<p><strong>End Date:</strong> {{ campaign.end_date }}</p>
+<p><strong>Startup:</strong> {{ campaign.startup.name }}</p>
+
+<a href="{% url 'campaigns:campaign_list' %}">Back to Campaigns</a>

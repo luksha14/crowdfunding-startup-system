@@ -1,0 +1,15 @@
+<h1>Campaigns</h1>
+<form method="get">
+    <input type="text" name="q" placeholder="Search campaigns..">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for campaign in campaigns %}
+        <li>
+            <a href="{% url 'campaigns:campaign_detail' campaign.id %}">
+                {{ campaign.name }}
+            </a> - {{ campaign.goal_amount }} raised: {{ campaign.collected_amount }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'campaigns:user_view' %}">Back to Dashboard</a>

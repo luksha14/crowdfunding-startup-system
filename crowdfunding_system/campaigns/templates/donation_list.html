@@ -1,0 +1,15 @@
+<h1>Donations</h1>
+<form method="get">
+    <input type="text" name="q" placeholder="Search donations...">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for donation in donations %}
+        <li>
+            <a href="{% url 'campaigns:donation_detail' donation.id %}">
+                {{ donation.user_name }}
+            <!-- </a> donated {{ donation.amount }} to {{ donation.campaign.name }} on {{ donation.donation_date }} -->
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'campaigns:user_view' %}">Back to Dashboard</a>

@@ -1,0 +1,5 @@
+<h1>{{ startup.name }}</h1>
+<p>{{ startup.description }}</p>
+<p>Founded by: {{ startup.founders }}</p>
+<p>Established: {{ startup.established_date }}</p>
+<a href="{% url 'campaigns:startup_list' %}">Back to list</a>

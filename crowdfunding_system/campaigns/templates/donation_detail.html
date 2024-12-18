@@ -1,0 +1,7 @@
+<h1>Donation Details</h1>
+<p><strong>User:</strong> {{ donation.user_name }}</p>
+<p><strong>Amount:</strong> {{ donation.amount }}</p>
+<p><strong>Campaign:</strong> {{ donation.campaign.name }}</p>
+<p><strong>Date:</strong> {{ donation.donation_date }}</p>
+
+<a href="{% url 'campaigns:donation_list' %}">Back to Donations</a>

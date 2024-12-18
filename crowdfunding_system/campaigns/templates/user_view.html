@@ -1,4 +1,10 @@
 <h1>Welcome, {{ user.username }}!</h1>
+<nav>
+    <a href="{% url 'campaigns:startup_list' %}">View Startups</a>
+    <a href="{% url 'campaigns:campaign_list' %}">View Campaigns</a>
+    <a href="{% url 'campaigns:donation_list' %}">View Donations</a>
+	<a href="{% url 'logout' %}">Logout</a>
+</nav>
 
 <h2>Startups</h2>
 <ul>
@@ -20,4 +26,3 @@
         <li>{{ donation.user_name }} - {{ donation.amount }} to {{ donation.campaign.name }}</li>
     {% endfor %}
 </ul>
-<a href="{% url 'logout' %}">Logout</a>

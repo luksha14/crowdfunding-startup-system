@@ -1,0 +1,15 @@
+<h1>Startups</h1>
+<form method="get">
+    <input type="text" name="q" placeholder="Search startups...">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for startup in startups %}
+        <li>
+            <a href="{% url 'campaigns:startup_detail' startup.pk %}">
+                {{ startup.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'campaigns:user_view' %}">Back to Dashboard</a>
