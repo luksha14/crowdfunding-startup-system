@@ -1,0 +1,7 @@
+<h1>Delete Donation</h1>
+<p>Are you sure you want to delete this donation by "{{ object.user_name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm</button>
+    <a href="{% url 'campaigns:donation_list' %}" class="btn btn-secondary">Cancel</a>
+</form>

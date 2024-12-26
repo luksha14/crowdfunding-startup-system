@@ -6,6 +6,8 @@ from django.urls import reverse_lazy
 from .models import Startup, Campaign, Donation
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import StartupForm, CampaignForm, DonationForm
 from django.http import HttpResponse
 
 ## Create your views here.
@@ -103,3 +105,54 @@ class DonationDetailView(DetailView):
     model = Donation
     template_name = 'donation_detail.html'
     context_object_name = 'donation'
+    
+class StartupCreateView(CreateView):
+    model = Startup
+    form_class = StartupForm
+    template_name = 'startup_form.html'
+    success_url = reverse_lazy('campaigns:startup_list')
+
+class StartupUpdateView(UpdateView):
+    model = Startup
+    form_class = StartupForm
+    template_name = 'startup_form.html'
+    success_url = reverse_lazy('campaigns:startup_list')
+
+class StartupDeleteView(DeleteView):
+    model = Startup
+    template_name = 'startup_confirm_delete.html'
+    success_url = reverse_lazy('campaigns:startup_list')
+
+class CampaignCreateView(CreateView):
+    model = Campaign
+    form_class = CampaignForm
+    template_name = 'campaign_form.html'
+    success_url = reverse_lazy('campaigns:campaign_list')
+
+class CampaignUpdateView(UpdateView):
+    model = Campaign
+    form_class = CampaignForm
+    template_name = 'campaign_form.html'
+    success_url = reverse_lazy('campaigns:campaign_list')
+
+class CampaignDeleteView(DeleteView):
+    model = Campaign
+    template_name = 'campaign_confirm_delete.html'
+    success_url = reverse_lazy('campaigns:campaign_list')
+
+class DonationCreateView(CreateView):
+    model = Donation
+    form_class = DonationForm
+    template_name = 'donation_form.html'
+    success_url = reverse_lazy('campaigns:donation_list')
+
+class DonationUpdateView(UpdateView):
+    model = Donation
+    form_class = DonationForm
+    template_name = 'donation_form.html'
+    success_url = reverse_lazy('campaigns:donation_list')
+
+class DonationDeleteView(DeleteView):
+    model = Donation
+    template_name = 'donation_confirm_delete.html'
+    success_url = reverse_lazy('campaigns:donation_list')

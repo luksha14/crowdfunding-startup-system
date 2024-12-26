@@ -1,0 +1,7 @@
+<h1>{{ form.instance.pk|default:"Create Donation" }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+<a href="{% url 'campaigns:donation_list' %}" class="btn btn-secondary">Back to Donations</a>

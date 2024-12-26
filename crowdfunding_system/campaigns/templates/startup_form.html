@@ -1,0 +1,7 @@
+<h1>Create / Update Startup</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'campaigns:startup_list' %}">Back to List</a>

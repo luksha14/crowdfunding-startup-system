@@ -1,15 +1,23 @@
 <h1>Startups</h1>
+
 <form method="get">
     <input type="text" name="q" placeholder="Search startups...">
     <button type="submit">Search</button>
 </form>
+
+<a href="{% url 'campaigns:startup_create' %}" class="btn btn-primary">Add New Startup</a>
+
 <ul>
     {% for startup in startups %}
         <li>
             <a href="{% url 'campaigns:startup_detail' startup.pk %}">
                 {{ startup.name }}
             </a>
+
+            <a href="{% url 'campaigns:startup_update' startup.pk %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'campaigns:startup_delete' startup.pk %}" class="btn btn-danger">Delete</a>
         </li>
     {% endfor %}
 </ul>
+
 <a href="{% url 'campaigns:user_view' %}">Back to Dashboard</a>
