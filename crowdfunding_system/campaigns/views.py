@@ -24,7 +24,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, '/registration/register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
 
 def is_admin(user):
     return user.is_superuser
