@@ -8,4 +8,4 @@ Zadaci:
 3. Projektni zadatak
 4. Projektni zadatak
 
-Optimizacija koda backenda te stilsko uredjivanje fronenda.
+Optimizacija koda backenda te stilsko uredjivanje frontenda.
