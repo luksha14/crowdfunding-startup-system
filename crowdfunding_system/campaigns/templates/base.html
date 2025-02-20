@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	{% load static %} 
     <link rel="stylesheet" href="{% static 'campaigns/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <title>Crowdfunding System</title>
 </head>
-<body>
-    <header>
-        <nav>
-            {% if user.is_authenticated %}
+<body> 
+        <div class="main">
+            <div class="navbar">
+                <h2 class="logo">L & L production</h2>
+            
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#agenda">AGENDA</a></li>
+                    <li><a href="#kontakt">KONTAKT</a></li>
+                </ul>
+            </div>
+            </div>
+            <div class="content">
+                <h1>CrowdFunding <br>Dođi i <span>Budi Dio </span>Promjena</h1>
+
+                <p class="par">Pridružite se grupnom financiranju i postanite dio promjene!<br> Udružimo snage, podržimo inovativne projekte, kreativne ideje i ostvarimo velike ciljeve zajedno<br> – svaki vaš doprinos čini razliku!</p>
+                {% if user.is_authenticated %}
+
                 <p>Welcome, {{ user.username }}!</p>
                 {% if user.is_superuser %}
                     <a href="{% url 'campaigns:admin_view' %}">Admin Panel</a>
@@ -19,18 +37,86 @@
                 {% endif %}
                 <a href="{% url 'logout' %}">Logout</a>
             {% else %}
-                <h1>Dobrodošli u Crowdfunding System</h1>
+                
+                
+                
                 <p>Prijavite se ili registrirajte za početak.</p>
                 <a href="{% url 'login' %}">Login</a> |
                 <a href="{% url 'campaigns:register' %}">Register</a>
             {% endif %}
-        </nav>
-    </header>
+            </div>  
+        </div>
 
-    <main>
-        {% block content %}
-        <!-- Content of the child templates will go here -->
-        {% endblock %}
-    </main>
+        <section class="about" id="about">
+            <h1>O NAMA</h1>
+            <p><span>Grupno financiranje</span> je inovativni način za prikupljanje sredstava za projekte ili ideje putem zajedničkog ulaganja više pojedinaca ili organizacija. Ovaj model omogućuje onima koji žele realizirati svoje projekte, ali nemaju dovoljno kapitala, da angažiraju širu zajednicu koja svojim doprinosima pomaže ostvariti ciljeve. Kolega Luka i ja, Lukas, osmislili smo koncept koji je specifičan u tome što kombinira tradicionalne pristupe grupnog financiranja s novim tehnologijama, čime omogućuje transparentnost i jednostavnost procesa.
+        
+                <div class="row">
+                    <div class="about-col">
+                        <h3>Pristup kapitalu</h3>
+                        <p>Omogućuje korisnicima da prikupe sredstva za svoje projekte ili ideje bez potrebe za tradicionalnim bankovnim kreditima
+                             ili velikim investitorima, što čini financiranje dostupnijim i fleksibilnijim</p>
+                    </div>
+                    <div class="about-col">
+                        <h3>Transparentnost</h3>
+                        <p>Kroz platformu korisnici mogu pratiti napredak prikupljanja sredstava, vidjeti kako njihov novac doprinosi
+                             projektu te imati uvid u sve detalje vezane uz financijske tokove, što povećava povjerenje</p>
+                    </div>
+                    <div class="about-col">
+                        <h3>Humanitarna podrška</h3>
+                        <p>Projektima se mogu pridružiti ljudi koji dijele iste interese ili uvjerenja, čime se stvara osjećaj 
+                            zajedništva i podrške, a korisnici mogu dobiti povratne informacije i savjete od šire zajednice</p>
+                    </div>
+                </div>
+        
+            </section>
+
+
+            <section class="agenda" id="agenda">
+                <h1>AGENDA</h1>
+                <div class="row">
+                    <div class="agenda-col">
+                        <img src="{% static 'campaigns/humanitarna.png' %}">
+                        <div class="layer">
+                            <a href="https://gogetfunding.com/help-is-needed-to-reunite-the-body-with-his-loved-ones-in-gambia-africa/">
+                            <h3>CAMPAIGNS</h3></a>
+                        </div>
+
+                    </div>
+
+                    <div class="agenda-col">
+                        <img src="{% static 'campaigns/rwanda-3710.jpg' %}">
+                        <div class="layer">
+                            <a href="https://www.timesnownews.com/the-buzz/article/real-life-mowgli-gets-crowdfunding-support-after-getting-bullied-by-villagers-for-being-different/689503">
+                            <h3>DONATIONS</h3></a>
+                        </div>
+                    </div>
+
+                    <div class="agenda-col">
+                        <img src="{% static 'campaigns/treca.jpg' %}">
+                        <div class="layer">
+                            <a href="https://www.economicsobservatory.com/what-is-crowdfunding-and-how-is-it-helping-small-businesses-in-the-uk">
+                            <h3>SMALL BUSINESS</h3></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="kontakt" id="kontakt">
+                    <h4>KONTAKT</h4>
+                    <p>Izradili: Luka Mikulić, Lukas Nagy</p>
+                    <p>FIDIT</p><br>
+                    <div class="icons">
+                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-phone"></i> 
+                        <a href="https://www.facebook.com/luka.mikulic?locale=hr_HR">
+                        <i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/lukas.nagy/?next=%2F">
+                        <i class="fab fa-instagram"></i></a>                           
+                    </div>            
+            </section>
+
+        
 </body>
 </html>

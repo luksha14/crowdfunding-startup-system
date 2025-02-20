@@ -1,3 +1,16 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'campaigns/startup.css' %}">
+
+</head>
+<body>
+    
+<div class="main">
+
 <h1>Donations</h1>
 
 <form method="get">
@@ -5,6 +18,7 @@
     <button type="submit">Search</button>
 </form>
 
+<a href="{% url 'campaigns:api_donation_list_create' %}" class="btn btn-info" style="margin-left: 10px;">API View</a>
 <a href="{% url 'campaigns:donation_create' %}" class="btn btn-primary">Add New Donation</a>
 
 <ul>
@@ -16,8 +30,12 @@
             </a>
             <a href="{% url 'campaigns:donation_update' donation.pk %}" class="btn btn-secondary btn-sm">Edit</a>
             <a href="{% url 'campaigns:donation_delete' donation.pk %}" class="btn btn-danger btn-sm">Delete</a>
+			<a href="{% url 'campaigns:api_donation_detail' donation.id %}" class="btn btn-info">API Details Url</a>
         </li>
     {% endfor %}
 </ul>
 
 <a href="{% url 'campaigns:user_view' %}">Back to Dashboard</a>
+</div>
+</body>
+</html>

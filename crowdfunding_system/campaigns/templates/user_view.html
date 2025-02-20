@@ -1,3 +1,18 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'campaigns/users.css' %}">
+
+	
+    <title>Crowdfunding System</title>
+</head>
+
+<body>
+<div class="main">
 <h1>Welcome, {{ user.username }}!</h1>
 <nav>
     <a href="{% url 'campaigns:startup_list' %}">View Startups</a>
@@ -26,3 +41,6 @@
         <li>{{ donation.user_name }} - {{ donation.amount }} to {{ donation.campaign.name }}</li>
     {% endfor %}
 </ul>
+</body>
+</div>
+</html>

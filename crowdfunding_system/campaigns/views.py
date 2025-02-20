@@ -24,7 +24,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, '/registration/register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
 
 def is_admin(user):
     return user.is_superuser
@@ -79,8 +79,10 @@ class CampaignListView(ListView):
         query = self.request.GET.get('q')
         if query:
             return Campaign.objects.filter(
-                Q(name__icontains=query) | Q(description__icontains=query)
-            )
+            Q(name__icontains=query) | 
+            Q(description__icontains=query) | 
+            Q(startup__name__icontains=query)
+        )
         return Campaign.objects.all()
 
 class CampaignDetailView(DetailView):

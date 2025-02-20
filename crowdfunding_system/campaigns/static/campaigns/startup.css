@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: rgb(24, 5, 5);
+
+}
+
+.main h1{
+    color: white;
+    text-align: center;
+}
+
+.main .btn{
+    color: white;
+}
+
+.main li{
+    color: white;
+
+}
+

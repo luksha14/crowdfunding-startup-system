@@ -1,6 +1,19 @@
-<h2>Register</h2>
+{% load static %} 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'campaigns/register.css' %}">
+</head>
+
+<body> 
+    <div class="wrapper">
+    <h1>Register</h1>
+    <br>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Register</button>
 </form>
+</body>
+</html>

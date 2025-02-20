@@ -6,6 +6,11 @@ from .views import (
     CampaignListView, CampaignDetailView,
     DonationListView, DonationDetailView
 )
+from .views_api import (
+    StartupListCreateView, StartupDetailView,
+    CampaignListCreateView, CampaignDetailView,
+    DonationListCreateView, DonationDetailView
+)
 from .views import *
 
 
@@ -35,4 +40,11 @@ urlpatterns = [
     path('donations/create/', DonationCreateView.as_view(), name='donation_create'),
     path('donations/<int:pk>/update/', DonationUpdateView.as_view(), name='donation_update'),
     path('donations/<int:pk>/delete/', DonationDeleteView.as_view(), name='donation_delete'),
+
+	path('api/startups/', StartupListCreateView.as_view(), name='api_startup_list_create'),
+    path('api/startups/<int:pk>/', StartupDetailView.as_view(), name='api_startup_detail'),
+    path('api/campaigns/', CampaignListCreateView.as_view(), name='api_campaign_list_create'),
+    path('api/campaigns/<int:pk>/', CampaignDetailView.as_view(), name='api_campaign_detail'),
+    path('api/donations/', DonationListCreateView.as_view(), name='api_donation_list_create'),
+    path('api/donations/<int:pk>/', DonationDetailView.as_view(), name='api_donation_detail'),
 ]

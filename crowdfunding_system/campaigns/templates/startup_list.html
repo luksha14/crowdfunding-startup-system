@@ -1,9 +1,23 @@
-<h1>Startups</h1>
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'campaigns/startup.css' %}">
 
+</head>
+
+<body>
+
+<div class="main">
+    <h1>Startups</h1>
 <form method="get">
     <input type="text" name="q" placeholder="Search startups...">
     <button type="submit">Search</button>
 </form>
+
+<a href="{% url 'campaigns:api_startup_list_create' %}" class="btn btn-info" style="margin-left: 10px;">API View</a>
 
 <a href="{% url 'campaigns:startup_create' %}" class="btn btn-primary">Add New Startup</a>
 
@@ -16,8 +30,12 @@
 
             <a href="{% url 'campaigns:startup_update' startup.pk %}" class="btn btn-secondary">Edit</a>
             <a href="{% url 'campaigns:startup_delete' startup.pk %}" class="btn btn-danger">Delete</a>
+			<a href="{% url 'campaigns:api_startup_detail' startup.id %}" class="btn btn-info">API Details Url</a>
         </li>
     {% endfor %}
 </ul>
 
 <a href="{% url 'campaigns:user_view' %}">Back to Dashboard</a>
+</div>
+</body>
+</html>
