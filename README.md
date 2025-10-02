@@ -174,3 +174,8 @@ curl -X POST -b cookies.txt -H "Content-Type: application/json" -d '{"title":"Cl
 ## 📜 License
 
 Academic project – use and modify freely for learning purposes.
+
+## Authors
+
+- [Luka Mikulić](https://github.com/luksha14) – Backend Developer
+- [Lukas Nagy](https://github.com/KasluGyna) - Frontend Developer
